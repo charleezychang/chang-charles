@@ -6,94 +6,83 @@ public static class LineDrawing
         Console.SetCursorPosition(x,y);
         Console.Write(c);
     }
-
-
+    
     static void DrawLine(int startx, int starty, int length)
     {
+        for (int y = length; y>=starty; y=y-1)
+        {
+            if(y%2!=0)
+            {
+                int NoOfY = (y/2) % 2 == 0 ?  (y/2) - 1 : (y/2); 
+                int yValueStarts=  (y - NoOfY) /2 + 1;
+                int yValueEnd= yValueStarts-1 + NoOfY;   
+                for (int x=1; x<=y; x++)
+                {
+                    if (x >= yValueStarts &&  x <=yValueEnd)
+                    {
+                        DrawCharacter((x+startx-1), y, 'Y');
+                    }
+                    else 
+                    {
+                        DrawCharacter((x+startx-1), y, 'X');
+                    }
+                } 
+                startx++;
+            }
+            else
+            {
+                DrawCharacter(startx-1, y, '/');
+                DrawCharacter(10, y, '|');
+                DrawCharacter(y+startx-1, y, '\\');
+            }
+        }       
+    }
 
-    }  
+    static void Message(int startx, int starty, string msg)
+    {
+        int j=0;
+        int numOfChar = msg.Length;
+        for (int i=startx; i <= (startx+numOfChar-1); i++)
+        {   
+                DrawCharacter(i, starty, msg[j]);
+                j++;
+        }
+    }
 
     public static void Main()
     {
         Console.Clear();
-        // for (int y = 1; y<=19; y=y+2)
-        // {
-        //     for (int x = 1; x<=10; x++)
-        //     {
-        //         float z = y/2 + 1;
-        //         if (x<=z)
-        //         {   
-        //             // Console.SetCursorPosition(x,y);
-        //             if (x<=(y/4+1))
-        //             {
-        //                 DrawCharacter(x, y, 'X');
-        //             }
-        //             else
-        //             {
-        //                 DrawCharacter(x, y, 'Y');
-        //             }
-        //         }
-        //     } 
-        // }
-        
-    int z=1;
-    int w=19;
-            for (int y = 19; y>=1; y=y-2)
-            {
-
-                    for (int x=z; x<=w; x++)
-                    {
-                        DrawCharacter(x, y, 'X');
-                    } 
-                        z++;
-                        w--;
-            }
-
-
-    
-    int a=18;
-    int b=1;
-        for (int y = 18; y>=1; y=y-2)
-        {
-            for(int x=b; x<=b; x++)
-            {
-                DrawCharacter(x, y, '/');
-            }
-                b++;
-                a--;
-        }
-    
-
-    int c=19;
-    int d=1;
-        for (int y = 18; y>=1; y=y-2)
-        {
-                DrawCharacter(c, y, '\\');
-                d++;
-                c--;
-        }
-
-    int e=10;
-    for (int y = 18; y>=1; y=y-2)
-        {
-                DrawCharacter(e, y, '|');
-        }
-
-
-    int f=1;
-    int g=19;
-            for (int y = 19; y>=1; y=y-2)
-            {
-
-                    for (int x=z; x<=w; x++)
-                    {
-                        DrawCharacter(x, y, 'Y');
-                    } 
-                        f++;
-                        g--;
-            }
-    Console.ReadLine();
+        DrawLine(1, 1, 19);
+        Message(20, 10, "Meri Kurismasu!");
+        Console.ReadLine();
     }
-
-    
 }
+
+        // int z = 0;
+        // for (int y = 19; y>=1; y=y-1)
+        // {
+        //     if(y%2!=0)
+        //     {
+        //         int NoOfY = (y/2) % 2 == 0 ?  (y/2) - 1 : (y/2); 
+        //         int yValueStarts=  (y - NoOfY) /2 + 1;
+        //         int yValueEnd= yValueStarts-1 + NoOfY;   
+        //         for (int x=1; x<=y; x++)
+        //         {
+        //             if (x >= yValueStarts &&  x <=yValueEnd)
+        //             {
+        //                 DrawCharacter((x+z), y, 'Y');
+        //             }
+        //             else 
+        //             {
+        //                 DrawCharacter((x+z), y, 'X');
+        //             }
+        //         } 
+        //         z++;
+        //     }
+        //     else
+        //     {
+        //         DrawCharacter(z, y, '/');
+        //         DrawCharacter(10, y, '|');
+        //         DrawCharacter(y+z, y, '\\');
+        //     }
+        // }
