@@ -32,7 +32,7 @@ public static class LineDrawing
             else
             {
                 DrawCharacter(startx-1, y, '/');
-                DrawCharacter(10, y, '|');
+                DrawCharacter(length/2+1, y, '|');
                 DrawCharacter(y+startx-1, y, '\\');
             }
         }       
