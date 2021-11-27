@@ -1,19 +1,17 @@
 import './App.css';
+import Todo from './components/Todo';
 
 
 
-function App(props) {
-  function deleteHandler() {
-    alert("asdasd");
-    }
-
+function App() {
   return (
-    <div className='card'>
-      <h2>{props.text}</h2>
-      <div className='actions'>
-        <button className='btn' onClick={deleteHandler}>Delete</button>
-      </div>
+    <div>
+      <Todo text='Driving Lessons' />
+      <Todo text='grocery' />
+      <Todo text='GIfts' />
+      <Todo text='hello' />
     </div>
+
   );
 }
 
