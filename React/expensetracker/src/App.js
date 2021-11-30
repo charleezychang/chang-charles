@@ -2,10 +2,11 @@ import React from 'react';
 
 import logo from './logo.svg';
 import './App.css';
+import NewExpense from './components/NewExpense/NewExpense';
 
 import RenderExpenses from './components/Expenses/RenderExpenses';
 
-function App() {                     //this line can be arrow function: const App = () => {
+function App() {                     //this line can be an arrow function: const App = () => { which does the same
   const expenses = [
     {
       id: 'e1',
@@ -29,11 +30,12 @@ function App() {                     //this line can be arrow function: const Ap
   ];
 
   return (
-    <div className='expenses'>
+    <div>
+      <NewExpense />
       <RenderExpenses expenses={expenses} />
     </div>
 
-    // alternatively, you need import React from 'react'     
+    // alternatively and an old-fashion way, you need import React from 'react'     
     // return React.createElement(                             createElement takes 3 or more arguments: element to be created, attributes of the created element, and the rest content b/w tags
     //   'div',
     //   {},
