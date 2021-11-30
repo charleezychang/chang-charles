@@ -1,0 +1,22 @@
+import React from 'react';
+
+import './ExpenseItem.css';
+import ExpenseDate from './ExpenseDate';
+import Card from '../UI/Card';
+
+function ExpenseItem(props) {
+    
+    return (
+        <Card className='expense-item'>            
+        {/* essentially you made your own div with pre-defined styles. */}
+        {/* custom tags dont have an attribute of className, so YOU MUST DECLARE THEM IN YOUR TAG'S JS FILE */}
+            <ExpenseDate date={props.date}/>
+            <div className='expense-item__description'>
+                <h2>{props.title}</h2>
+                <div className='expense-item__price'>{props.amount}</div>
+            </div>
+        </Card>
+    );
+}
+
+export default ExpenseItem
