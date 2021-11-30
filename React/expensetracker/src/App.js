@@ -5,7 +5,7 @@ import './App.css';
 
 import RenderExpenses from './components/Expenses/RenderExpenses';
 
-function App() {
+function App() {                     //this line can be arrow function: const App = () => {
   const expenses = [
     {
       id: 'e1',
